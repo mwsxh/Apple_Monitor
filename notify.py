@@ -9,9 +9,9 @@ def send_email(subject,content,email_addrs):
     mail_host="smtp.qq.com"  #设置服务器
     mail_user="qoyoq"    #用户名
     mail_pass=""   #口令
-    authcode = "lsufhhovmyxybiie"
+    authcode = "*****"
 
-    sender = '422780332@qq.com'
+    sender = '****'
     receivers = email_addrs  # 接收邮件，可设置为你的QQ邮箱或者其他邮箱
 
     message = MIMEText(content, 'plain', 'utf-8')
@@ -38,12 +38,8 @@ def send_wx(content):
     params["text"] = "有货通知"
     params["desp"] = content
     params_str = urllib.urlencode(params)
-    req=urllib2.Request(url=r"http://sc.ftqq.com/SCU2686T0ff3b345d064e9abf4d2132577826cb857ef31dba233e.send?"+params_str)
+    req=urllib2.Request(url=r"http://sc.ftqq.com/***.send?"+params_str)
     data = urllib2.urlopen(req).read()
     # print data
     json_data = json.loads(data)
     print json_data["errmsg"]
-
-
-if __name__ == "__main__":
-    send_email("hello","test~",["422780332@qq.com"])
