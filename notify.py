@@ -40,6 +40,5 @@ def send_wx(content):
     params_str = urllib.urlencode(params)
     req=urllib2.Request(url=r"http://sc.ftqq.com/***.send?"+params_str)
     data = urllib2.urlopen(req).read()
-    # print data
     json_data = json.loads(data)
     print json_data["errmsg"]
