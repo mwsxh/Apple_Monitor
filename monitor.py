@@ -9,7 +9,7 @@ for line in in_f:
     model_map[arr[0]] = arr[1]
 in_f.close()
 
-req=urllib2.Request(url=r"https://reserve.cdn-apple.com/HK/zh_HK/reserve/iPhone/stores.json")
+req=urllib2.Request(url=r"https://reserve-prime.apple.com/HK/zh_HK/reserve/iPhone/stores.json")
 store_data = json.loads(urllib2.urlopen(req).read())
 store_list = store_data["stores"]
 store_map = {}
@@ -18,7 +18,7 @@ for item in store_list:
 
 
 def check(monitor_models):
-    req=urllib2.Request(url=r"https://reserve.cdn-apple.com/HK/zh_HK/reserve/iPhone/availability.json")
+    req=urllib2.Request(url=r"https://reserve-prime.apple.com/HK/zh_HK/reserve/iPhone/availability.json")
     try:
         status_data = json.loads(urllib2.urlopen(req).read())
     except urllib2.URLError,e:
@@ -70,6 +70,6 @@ def construct_email_content(result):
 
 if __name__ == "__main__":
     monitor_models=[u"MN4D2ZP/A",u"MN482ZP/A",u"MN492ZP/A"]
-    email_addrs = ["422780332@qq.com"]
+    email_addrs = ["*@qq.com"]
     execute(monitor_models,email_addrs,2)
 

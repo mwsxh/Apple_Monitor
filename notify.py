@@ -25,7 +25,7 @@ def send_email(subject,content,email_addrs):
     try:
         smtpObj = smtplib.SMTP_SSL(mail_host,465)
         smtpObj.connect(mail_host,)    # 25 为 SMTP 端口号
-        smtpObj.login(mail_user,authcode)
+        smtpObj.login(mail_user,authcode)s
         smtpObj.sendmail(sender, receivers, message.as_string())
         print "邮件发送成功"
     except Exception, e:
